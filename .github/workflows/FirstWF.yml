@@ -1,4 +1,4 @@
-name: CI
+name: My first workflow to test github actions
 
 #Controls when the workflow will run
 on:
