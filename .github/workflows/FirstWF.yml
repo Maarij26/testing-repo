@@ -1,0 +1,34 @@
+name: CI
+
+#Controls when the workflow will run
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  #Allows you to run this workflow manually from actions tab
+  workflow_dispatch:
+
+#A workflow run consists of one or more jobs that can run sequentially or in parallel.
+jobs:
+  #This workflow contains a single job called "Build"
+  build:
+    #This type of runner that the job will run on
+    runs-on: windows-latest
+    #Steps represent the sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Step 1 - Update dependencies
+      run: echo "Updating dependencies"
+      
+    - name: Step 2 - Build project
+      run: echo "Building project"
+      
+    - name: Step 3 - Run tests
+      run: echo "Running tests"
+      
+    - name: Step 4 - Deploy to staging
+      run: echo "Deploying to staging"
