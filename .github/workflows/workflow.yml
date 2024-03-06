@@ -1,0 +1,40 @@
+name: Frappe CI on Windows
+
+# Defines when the action will run.
+on:
+  push:
+    branches: [ testing-branch ]
+  pull_request:
+    branches: [ testing-branch ]
+
+# Jobs to run
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install frappe-bench
+
+    - name: Setup Frappe Bench
+      run: |
+        bench init --frappe-branch version-13 frappe-bench
+        cd frappe-bench
+        bench get-app testing https://github.com/Maarij26/testing-repo
+        bench new-site maarij.erp --admin-password m1cromerg3r --mariadb-root-password m1cromerg3r
+        bench --site maarij.erp install-app testing
+
+    - name: Run tests
+      run: |
+        cd frappe-bench
+        bench --site maarij.erp run-tests --app testing
+
