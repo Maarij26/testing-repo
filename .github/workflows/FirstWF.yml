@@ -1,0 +1,40 @@
+name: My first workflow to test github actions
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run consists of one or more jobs that can run sequentially or in parallel.
+jobs:
+  # This workflow contains a single job called "Build"
+  build:
+    # This type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent the sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20' # Specify the Node.js version you want to use
+
+    - name: Step 1 - Update dependencies
+      run: npm install # Assuming you are using npm as your package manager
+
+    - name: Step 2 - Build project
+      run: npm run build # This assumes you have a "build" script defined in your package.json
+      
+    - name: Step 3 - Run tests
+      run: npm test # This assumes you have a "test" script defined in your package.json
+      
+    - name: Step 4 - Deploy to staging
+      run: echo "Deploying to staging"
