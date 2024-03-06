@@ -1,44 +1,14 @@
-name: Frappe CI on Windows
-
-# Defines when the action will run.
-on:
-  push:
-    branches: [ testing-branch ]
-  pull_request:
-    branches: [ testing-branch ]
-
-# Jobs to run
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
 jobs:
-  build:
-    runs-on: windows-latest
-
+  check-bats-version:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-    
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v3
-      with:
-        python-version: 3.8
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install frappe-bench
-
-    - name: Setup Frappe Bench
-      run: |
-        bench init --frappe-branch version-13 frappe-bench
-        cd frappe-bench
-        bench get-app testing https://github.com/Maarij26/testing-repo
-        bench new-site maarij.erp --admin-password m1cromerg3r --mariadb-root-password m1cromerg3r
-        bench --site maarij.erp install-app testing
-
-    - name: Run tests
-      run: |
-        cd frappe-bench
-        bench --site maarij.erp run-tests --app testing
