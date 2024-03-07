@@ -1,0 +1,10 @@
+# This is the list of reviewers to approve anything in this repo.
+
+* @NabeelSaleem333
+
+#What if, like to change python files
+
+*.py @NabeelSaleem333
+
+# What will be target spec folder
+/docs/* @NabeelSaleem333
