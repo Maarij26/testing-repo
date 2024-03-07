@@ -1,0 +1,136 @@
+<style>
+  .sales-manager-dashboard {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    background-color: #eddfdf;
+    padding: 10px;
+  }
+
+  .sales-manager-dashboard>div {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+  }
+
+  .total-amount-stage {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  #topAccounts_won,
+  #topAcounts_open {
+    min-width: 310px;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+  }
+</style>
+
+<div class="sales-manager-dashboard" id="sales_manager_dashboard">
+  <div class="total-amount-closed">
+    <article>
+      <h4>Total Amount for closed Curent FQ!</h4>
+      <div>
+        <div class="total-amount-chart">
+          <!-- {{won_closed_amount}} -->
+          <h1 id="total_amount_chart" style="padding-top: 50%;">{{won_closed_amount}}</h1>
+          <a href="http://192.168.10.69:2000/app/query-report/Total%20Amount%20Closed">View Report(Total Amount Closed)</a>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="total-amount-stage">
+    <article>
+      <h4>Total Amount by Stage!</h4>
+      <div>
+        <div id="totalAmount_stage"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Total%20Amount%20by%20Stage">View Report (Total Amount by Stage)</a>
+      </div>
+    </article>
+  </div>
+  <div class="closed-won">
+    <article>
+      <h4></h4>
+      <div>
+        <div id="closed_won"></div>
+        <a href="#">View Report(Closed Won)</a>
+      </div>
+    </article>
+  </div>
+  <div class="topAccounts-won">
+    <article>
+      <!-- <h4>
+        <div>Top Accounts - Won</div>
+      </h4> -->
+      <div>
+        <div id="topAccounts_won"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Top%20Accounts%20Won">View Report(Top Accounts - Won)</a>
+      </div>
+    </article>
+  </div>
+  <div class="topAccounts-open">
+    <article>
+      <!-- <h4>Top Accounts - Open</h4> -->
+      <div>
+        <div id="topAcounts_open"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Top%20Accounts%20Open">View Report(Top Accounts - Open)</a>
+      </div>
+    </article>
+  </div>
+  <div class="amount-won-type">
+    <article>
+      <!-- <h4>Amount Won by Type, FQ Comparison!</h4> -->
+      <div>
+        <div id="amount_won_type"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Amount%20Won%20by%20Type">View Report(Amount Won by type)</a>
+      </div>
+    </article>
+  </div>
+  <div class="closed-won-rep">
+    <article>
+      <h4></h4>
+      <div>
+        <div id="closed_won_rep"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Closed%20Won%20by%20Rep">View Report(Closed Won by Rep)</a>
+      </div>
+    </article>
+  </div>
+  <div class="closed-won80-rep">
+    <article>
+      <h4></h4>
+      <div>
+        <div id="closed_won80_rep"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Closed%20Won80%20by%20Rep">View Report(Closed Won80 by Rep)</a>
+      </div>
+    </article>
+  </div>
+  <div class="closed-lost-reason">
+    <article>
+      <!-- <h4>Closed Lost by Reason, FQ Comparison!</h4> -->
+      <div>
+        <div id="closed_lost_reason"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Closed%20Lost%20by%20Reason">View Report(Closed Lost Reason)</a>
+      </div>
+    </article>
+  </div>
+  <div class="winLoss-ratio-rep">
+    <article>
+      <h4></h4>
+      <div>
+        <div id="wl_ratio_rep"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Win-Loss%20Ratio">View Report(Win Loss Ratio)</a>
+      </div>
+    </article>
+  </div>
+  <div class="last-activity">
+    <article>
+      <h4></h4>
+      <div>
+        <div id="last_activity"></div>
+        <a href="http://192.168.10.69:2000/app/query-report/Last%20Activity">View Report(Last Activity)</a>
+      </div>
+    </article>
+  </div>
+</div>

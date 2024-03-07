@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2024-01-15 18:01:31.379517",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-01-15 18:02:42.554302",
+ "modified_by": "Administrator",
+ "module": "CRM",
+ "name": "sales-manager-dashboard",
+ "owner": "Administrator",
+ "page_name": "sales-manager-dashboard",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Sales Manager Dashoboard"
+}
